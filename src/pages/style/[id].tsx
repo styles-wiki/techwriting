@@ -3,6 +3,7 @@ import ButtonLink from '../../components/ButtonLink';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
+import _ from 'lodash';
 
 function Body({ body }) {
     return (
@@ -1013,8 +1014,37 @@ export default function Index({ issue }) {
     return (
         <AppShell>
             <div className="mt-4 font-body mx-auto max-w-screen-lg">
-                <h2 className="text-4xl font-extrabold sw-text-blue">#{issue.number}: {issue.title}</h2>
-                <div className="flex mt-2">
+                <h2 className="text-4xl font-extrabold sw-text-blue">
+                    #{issue.number}: {issue.title}
+                </h2>
+                <div className="flex text-gray-700 space-x-2 font-sans">
+                    {/* <p>{issue.url}</p>
+                    <div className="text-gray-500">&bull;</div> */}
+
+                    <div className="flex flex-row items-center text-md">
+                        <span role="img" aria-label="thumbs up">
+                            👍
+                        </span>
+                        <span className="ml-2">
+                            {issue.reactionGroups.find((g) => g.content === 'THUMBS_UP').users.totalCount}
+                        </span>
+                    </div>
+                    <div className="text-gray-500">&bull;</div>
+                    <div className="flex items-center text-md">
+                        <span role="img" aria-label="thumbs down">
+                            👎
+                        </span>
+                        <span className="ml-2">
+                            {issue.reactionGroups.find((g) => g.content === 'THUMBS_DOWN').users.totalCount}
+                        </span>
+                    </div>
+                    <div className="text-gray-500">&bull;</div>
+                    <p><a className="underline text-blue-800" href={issue.url}>Add your vote!</a></p>
+                     {/* <p>{issue.url}</p>
+                    <div className="text-gray-500">&bull;</div> */}
+
+                </div>
+                <div className="flex mt-4 flex-col space-y-2 lg:space-y-0 xl:space-y-0 lg:flex-row xl:flex-row">
                     <div>
                         <Link href="/" passHref>
                             <ButtonLink>
@@ -1040,16 +1070,15 @@ export default function Index({ issue }) {
                                         fillRule="evenodd"
                                         d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z"
                                         clipRule="evenodd"
-                                    ></path>
+                                    />
                                 </svg>
                                 <div className="pl-1">{permaLink}</div>
                             </div>
                         </button>
                     </CopyToClipboard>
                 </div>
-                <div className="px-12 py-8 sw-bg-offwhite rounded mt-4">
-                    <h3 className="text-2xl font-semibold">{issue.title}</h3>
-                    <div className="markdown-body mt-2">
+                <div className="px-12 py-10 sw-bg-offwhite mt-4">
+                    <div className="markdown-body">
                         <Body body={issue.body} />
                     </div>
                 </div>
@@ -1070,9 +1099,14 @@ export async function getStaticProps({ params }) {
                     repository(owner: "styles-wiki", name: "techwriting") {
                         issue(number: $id) {
                             body
-                            bodyText
                             number
                             title
+                            url
+                            labels(first: 5) {
+                                nodes {
+                                    name
+                                }
+                            }
                             reactionGroups {
                                 content
                                 users(first: 0) {

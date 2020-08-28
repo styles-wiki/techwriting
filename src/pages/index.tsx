@@ -1,13 +1,19 @@
 import AppShell from '../components/AppShell';
 import Dotdotdot from 'react-dotdotdot';
 import Link from 'next/link';
+import _ from 'lodash';
 
-function PreviewCard({ number, title, bodyText }) {
+function getFirecount({ reactionGroups }) {
+    const reactionsMap = _.keyBy(reactionGroups, 'content');
+    return reactionsMap['THUMBS_UP'].users.totalCount - reactionsMap['THUMBS_DOWN'].users.totalCount;
+}
+
+function PreviewCard({ number, title, bodyText, reactionGroups, labels }) {
     return (
         <Link href="/style/[id]" as={`/style/${number}`}>
             <a>
                 <div className="bg-blue-100 border-0 border-indigo-800 px-4 pt-4 pb-3 flex shadow-md">
-                    <div className="pr-4 text-orange-600 font-bold">
+                    <div className="pr-4 text-orange-600 font-bold flex flex-col items-center">
                         <svg viewBox="0 0 20 20" fill="currentColor" className="mx-auto w-4 h-4">
                             <path
                                 fillRule="evenodd"
@@ -15,17 +21,17 @@ function PreviewCard({ number, title, bodyText }) {
                                 clipRule="evenodd"
                             ></path>
                         </svg>
-                        345
+                        {getFirecount({ reactionGroups })}
                     </div>
                     <div className="w-full -mt-1">
                         <h3 className="font-semibold text-lg mb-1">{title}</h3>
                         <Dotdotdot clamp={2}>
                             <p>{bodyText}</p>
                         </Dotdotdot>
-                        <div className="mt-2 flex text-sm text-gray-700 space-x-1">
-                            <div className="underline">#foo</div>
-                            <div className="underline">#bar</div>
-                            <div className="underline">#baz</div>
+                        <div className="mt-2 flex text-sm text-gray-700 space-x-2">
+                            {labels.nodes.map(({ id, name }) => {
+                                return <div className="underline" key={id}>#{name}</div>;
+                            })}
                         </div>
                     </div>
                 </div>
@@ -99,6 +105,13 @@ export async function getStaticProps() {
                                 bodyText
                                 number
                                 title
+                                url
+                                labels(first: 5) {
+                                    nodes {
+                                        id
+                                        name
+                                    }
+                                }
                                 reactionGroups {
                                     content
                                     users(first: 0) {

@@ -2,6 +2,7 @@
   "name": "styles.wiki",
   "dependencies": {
     "graphql-hooks": "^4.5.0",
+    "lodash": "^4.17.20",
     "next": "^9.5.2",
     "react": "^16.13.1",
     "react-copy-to-clipboard": "^5.0.2",
