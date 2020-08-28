@@ -1,4 +1,7 @@
 export default function Header() {
+    const repo = `styles-wiki/${process.env.NEXT_PUBLIC_SITE}`;
+    const site = `${process.env.NEXT_PUBLIC_SITE}.styles.wiki`;
+
     return (
         <>
             <style jsx>{`
@@ -10,14 +13,20 @@ export default function Header() {
                     color: #f6f3f7;
                 }
             `}</style>
-            <div className="pt-3 mb-2">
-                <div className="flex justify-end">
-                    <div>@mark_larah</div>
+            <div className="header flex py-2 px-4 justify-between">
+                <div className="font-russo text-2xl text">
+                    <a href={`https://${site}`}>{site}</a>
                 </div>
-                <div className="header flex py-2 px-3">
-                    <div className="font-russo text-2xl text">
-                        <span>techwriting</span>.styles.wiki
-                    </div>
+                <div className="flex justify-end py-2 space-x-3">
+                    <a href="https://twitter.com/mark_larah">
+                        <img
+                            src="https://img.shields.io/twitter/follow/mark_larah?label=@mark_larah"
+                            alt="Twitter Follow"
+                        />
+                    </a>
+                    <a href={`https://github.com/${repo}`}>
+                        <img src={`https://img.shields.io/github/stars/${repo}.svg?style=social`} alt="github" />
+                    </a>
                 </div>
             </div>
         </>

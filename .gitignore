@@ -1,5 +1,6 @@
 node_modules
 .env
+.env.local
 build
 .next
 yarn-error.log
