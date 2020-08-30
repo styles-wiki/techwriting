@@ -1,6 +1,6 @@
 # techwriting.styles.wiki
 
-[![Maintained by @mark_larah](https://img.shields.io/twitter/follow/mark_larah)](https://twitter.com/mark_larah?ref_src=github_composerize)
+[![Maintained by @mark_larah](https://img.shields.io/twitter/follow/mark_larah&label=Maintained by @mark_larah)](https://twitter.com/mark_larah?ref_src=github_composerize)
 
 ✨ **styles.wiki** ✨ is a community-driven collection of styleguide rules for
 various technical domains. "Styles" are submitted as GitHub issues and will
