@@ -2,4 +2,4 @@ blank_issues_enabled: false
 contact_links:
   - name: Anything else
     url: https://github.com/styles-wiki/styles-wiki
-    about: Head to [styles-wiki/styles-wiki](https://github.com/styles-wiki/styles-wiki) for "real issues" such as bug reports, feature requests, roadmap questions etc
+    about: Head to https://github.com/styles-wiki/styles-wiki for "real issues" such as bug reports, feature requests and roadmap questions
