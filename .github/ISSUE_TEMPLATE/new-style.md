@@ -1,5 +1,5 @@
 ---
-name: New Style
+name: New style
 about: Submit a new techwriting.styles.wiki style
 title: ''
 labels: ''
