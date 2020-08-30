@@ -63,7 +63,7 @@ export default function Index({ issues }) {
                     <p className="mt-1 text-lg font-semibold">
                         <a
                             className="text-blue-600 underline"
-                            href="https://github.com/styles-wiki/techwriting/issues/new"
+                            href="https://github.com/styles-wiki/techwriting/issues/new/choose"
                         >
                             Submit a new style for techwriting.styles.wiki!
                         </a>
