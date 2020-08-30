@@ -16,3 +16,9 @@ Want to add a style? [Submit an issue][issue]!
 [issue]: https://github.com/styles-wiki/techwriting/issues/new/choose
 
 ![](https://i.fluffy.cc/MvFgT8KR75wrnK18l6ck1mSvCdSvffjK.png)
+
+---
+
+## styles.wiki
+
+Head to https://github.com/styles-wiki/styles-wiki for meta-issues around \*.styles.wiki
