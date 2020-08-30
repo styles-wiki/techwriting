@@ -10,6 +10,8 @@ function Body({ body }) {
     return (
         <>
             <style jsx global>{`
+                // This is copied from https://github.com/sindresorhus/github-markdown-css
+
                 .markdown-body .octicon {
                     display: inline-block;
                     fill: currentColor;
@@ -1019,6 +1021,9 @@ export default function Index({ issue }) {
                 <h2 className="text-4xl font-extrabold sw-text-blue">
                     #{issue.number}: {issue.title}
                 </h2>
+                {/* <p className="mb-1">
+                    <a href={issue.url} className="underline sw-text-blue">{issue.url}</a>
+                </p> */}
                 <div className="flex text-gray-700 space-x-2 font-sans">
                     <div className="flex flex-row items-center text-md">
                         <span role="img" aria-label="thumbs up">
@@ -1043,6 +1048,7 @@ export default function Index({ issue }) {
                             Add your vote!
                         </a>
                     </p>
+                    <div className="text-gray-500">&bull;</div>
                 </div>
                 <div className="flex mt-6 flex-col space-y-2 lg:space-y-0 xl:space-y-0 lg:flex-row xl:flex-row">
                     <Link href="/" passHref>
@@ -1085,7 +1091,9 @@ export default function Index({ issue }) {
                     </div>
                 </div>
                 <div className="mt-4 flex text-gray-700 justify-end">
-                    <a href={issue.url}><p>Suggest edit on GitHub</p></a>
+                    <a href={issue.url}>
+                        <p>Suggest edit on GitHub</p>
+                    </a>
                 </div>
             </div>
         </AppShell>
