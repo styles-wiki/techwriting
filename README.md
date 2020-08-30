@@ -11,3 +11,5 @@ automagically appear in the web app using [Incremental Static Generation][isr].
 Want to add a style? [Submit an issue][issue]!
 
 [issue]: https://github.com/styles-wiki/techwriting/issues/new
+
+![](https://i.fluffy.cc/MvFgT8KR75wrnK18l6ck1mSvCdSvffjK.png)
