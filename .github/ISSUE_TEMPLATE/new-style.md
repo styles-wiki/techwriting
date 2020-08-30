@@ -8,7 +8,7 @@ assignees: ''
 ---
 
 <!-- ONLY SUBMIT "STYLES" AS ISSUES! -->
-<!-- If you want to submit a meta-issue such a bug or roadmap question, head to https://github.com/styles-wiki/styles-wiki/ -->
+<!-- If this isn't a "style", please head to https://github.com/styles-wiki/styles-wiki to open an actual issue such as a bug report, feature request or roadmap question. -->
 
 <!-- insert a paragraph or two about describing the concept -->
 
