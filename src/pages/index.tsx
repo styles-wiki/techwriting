@@ -52,10 +52,13 @@ export default function Index({ issues }) {
                     ></path>
                 </svg>
                 <div className="pl-3 text-gray-800 font-body">
-                    <p>
+                    <p className="mb-1">
                         <span className="font-semibold">styles.wiki</span> is a community-driven collection of
                         styleguide rules for various technical domains. "Styles" are submitted as GitHub issues and will
-                        appear on this web app. (You may curate your own list of styles to form a styleguide.)
+                        appear on this web app.
+                    </p>
+                    <p>
+                        <span className="font-semibold">techwriting.styles.wiki</span> is for technical writing - project documentation, scoping docs, tech specs, RFCs etc.
                     </p>
                     <p className="mt-1 text-lg font-semibold">
                         <a
@@ -68,16 +71,16 @@ export default function Index({ issues }) {
                 </div>
             </div>
             <div className="mt-4 font-body">
-                <div className="bg-offwhit p-3 max-w-xl mx-auto">
+                {/* <div className="bg-offwhit p-3 max-w-xl mx-auto">
                     <div className="">
                         <div className="pr-3 text-lg font-semibold">
                             <label htmlFor="searchbox">Super search box 2000 (disabled for now):</label>
                         </div>
                         <input id="searchbox" disabled type="text" placeholder="foo" className="w-full px-3 py-2" />
                     </div>
-                </div>
+                </div> */}
 
-                <h2 className="text-4xl font-extrabold sw-text-blue">All styles</h2>
+                <h2 className="mt-8 text-4xl font-extrabold sw-text-blue">All styles</h2>
                 <div className="mt-1 grid grid-flow-row lg:grid-cols-2 xl:grid-cols-2 gap-x-4 gap-y-4">
                     {issues.map((issue) => {
                         return <PreviewCard key={issue.number} {...issue} />;
