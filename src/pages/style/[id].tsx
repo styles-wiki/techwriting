@@ -3,6 +3,7 @@ import ButtonLink from '../../components/ButtonLink';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
+import Tooltip from '@reach/tooltip';
 import _ from 'lodash';
 
 function Body({ body }) {
@@ -1004,6 +1005,7 @@ function Body({ body }) {
         </>
     );
 }
+
 export default function Index({ issue }) {
     if (!issue) {
         return <p>Loading...</p>;
@@ -1018,14 +1020,11 @@ export default function Index({ issue }) {
                     #{issue.number}: {issue.title}
                 </h2>
                 <div className="flex text-gray-700 space-x-2 font-sans">
-                    {/* <p>{issue.url}</p>
-                    <div className="text-gray-500">&bull;</div> */}
-
                     <div className="flex flex-row items-center text-md">
                         <span role="img" aria-label="thumbs up">
                             👍
                         </span>
-                        <span className="ml-2">
+                        <span className="ml-1 font-semibold">
                             {issue.reactionGroups.find((g) => g.content === 'THUMBS_UP').users.totalCount}
                         </span>
                     </div>
@@ -1034,53 +1033,59 @@ export default function Index({ issue }) {
                         <span role="img" aria-label="thumbs down">
                             👎
                         </span>
-                        <span className="ml-2">
+                        <span className="ml-1 font-semibold">
                             {issue.reactionGroups.find((g) => g.content === 'THUMBS_DOWN').users.totalCount}
                         </span>
                     </div>
                     <div className="text-gray-500">&bull;</div>
-                    <p><a className="underline text-blue-800" href={issue.url}>Add your vote!</a></p>
-                     {/* <p>{issue.url}</p>
-                    <div className="text-gray-500">&bull;</div> */}
-
+                    <p>
+                        <a className="underline sw-text-blue" href={issue.url}>
+                            Add your vote!
+                        </a>
+                    </p>
                 </div>
-                <div className="flex mt-4 flex-col space-y-2 lg:space-y-0 xl:space-y-0 lg:flex-row xl:flex-row">
-                    <div>
-                        <Link href="/" passHref>
-                            <ButtonLink>
-                                <div className="flex items-center text-gray-700 space-x-1">
-                                    <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 -mt-1">
-                                        <path
-                                            fillRule="evenodd"
-                                            d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
-                                            clipRule="evenodd"
-                                        ></path>
-                                    </svg>
-                                    <p className="pl-1">Back to all styles</p>
-                                </div>
-                            </ButtonLink>
-                        </Link>
-                    </div>
-                    <div className="flex-grow"></div>
-                    <CopyToClipboard text={permaLink} onCopy={() => alert('copied to clipboard')}>
-                        <button role="button" className="text-blue-600">
-                            <div className="px-3 pt-2 pb-1 bg-blue-100 border rounded flex items-center">
+                <div className="flex mt-6 flex-col space-y-2 lg:space-y-0 xl:space-y-0 lg:flex-row xl:flex-row">
+                    <Link href="/" passHref>
+                        <ButtonLink>
+                            <div className="flex items-center text-gray-700 space-x-1">
                                 <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 -mt-1">
                                     <path
                                         fillRule="evenodd"
-                                        d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z"
+                                        d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
                                         clipRule="evenodd"
-                                    />
+                                    ></path>
                                 </svg>
-                                <div className="pl-1">{permaLink}</div>
+                                <p className="pl-1">Back to all styles</p>
                             </div>
-                        </button>
-                    </CopyToClipboard>
+                        </ButtonLink>
+                    </Link>
+                    <div className="flex-grow" />
+                    <Tooltip label="Copy permalink to clipboard">
+                        <div>
+                            <CopyToClipboard text={permaLink} onCopy={() => alert('Copied to clipboard')}>
+                                <button role="button" className="sw-text-blue">
+                                    <div className="px-3 pt-2 pb-1 bg-gray-100 border flex items-center">
+                                        <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 -mt-1">
+                                            <path
+                                                fillRule="evenodd"
+                                                d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z"
+                                                clipRule="evenodd"
+                                            />
+                                        </svg>
+                                        <div className="pl-1">{permaLink}</div>
+                                    </div>
+                                </button>
+                            </CopyToClipboard>
+                        </div>
+                    </Tooltip>
                 </div>
-                <div className="px-12 py-10 sw-bg-offwhite mt-4">
+                <div className="px-12 py-10 bg-gray-100 mt-4">
                     <div className="markdown-body">
                         <Body body={issue.body} />
                     </div>
+                </div>
+                <div className="mt-4 flex text-gray-700 justify-end">
+                    <a href={issue.url}><p>Suggest edit on GitHub</p></a>
                 </div>
             </div>
         </AppShell>

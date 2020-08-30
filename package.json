@@ -1,6 +1,7 @@
 {
   "name": "styles.wiki",
   "dependencies": {
+    "@reach/tooltip": "^0.11.0",
     "graphql-hooks": "^4.5.0",
     "lodash": "^4.17.20",
     "next": "^9.5.2",

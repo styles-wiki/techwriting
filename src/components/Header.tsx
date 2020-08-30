@@ -1,6 +1,6 @@
 export default function Header() {
     const repo = `styles-wiki/${process.env.NEXT_PUBLIC_SITE}`;
-    const site = `${process.env.NEXT_PUBLIC_SITE}.styles.wiki`;
+    const url = `https://${process.env.NEXT_PUBLIC_SITE}.styles.wiki`;
 
     return (
         <>
@@ -15,15 +15,18 @@ export default function Header() {
             `}</style>
             <div className="header flex py-2 px-4 justify-between">
                 <div className="font-russo text-2xl text">
-                    <a href={`https://${site}`}>{site}</a>
+                    <a href={url}>
+                        <span>{process.env.NEXT_PUBLIC_SITE}</span>
+                        .styles.wiki
+                    </a>
                 </div>
                 <div className="flex justify-end py-2 space-x-3">
-                    <a href="https://twitter.com/mark_larah">
+                    {/* <a href="https://twitter.com/mark_larah">
                         <img
                             src="https://img.shields.io/twitter/follow/mark_larah?label=@mark_larah"
                             alt="Twitter Follow"
                         />
-                    </a>
+                    </a> */}
                     <a href={`https://github.com/${repo}`}>
                         <img src={`https://img.shields.io/github/stars/${repo}.svg?style=social`} alt="github" />
                     </a>

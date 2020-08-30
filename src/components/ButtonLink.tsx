@@ -11,7 +11,7 @@ const ButtonLink = forwardRef<HTMLAnchorElement, Props>((props, ref) => {
 
     return (
         <a href={href} onClick={onClick} ref={ref}>
-            <div className="rounded px-3 pt-2 pb-1 bg-gray-100 hover:bg-purple-100">{children}</div>
+            <div className="px-3 pt-2 pb-1 bg-gray-100 hover:bg-purple-100">{children}</div>
         </a>
     );
 });

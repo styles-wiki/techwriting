@@ -1,4 +1,5 @@
 import '../tailwind.css';
+import "@reach/tooltip/styles.css";
 
 import Head from 'next/head';
 
@@ -20,14 +21,6 @@ export default function App({ Component, pageProps }) {
 
                 .font-body {
                     font-family: 'Baloo Tamma 2', sans-serif;
-                }
-
-                .sw-bg-gray {
-                    background: #ede6ef;
-                }
-
-                .sw-bg-offwhite {
-                    background: #f6f3f7;
                 }
 
                 .sw-text-blue {

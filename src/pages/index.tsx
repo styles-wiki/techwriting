@@ -12,7 +12,7 @@ function PreviewCard({ number, title, bodyText, reactionGroups, labels }) {
     return (
         <Link href="/style/[id]" as={`/style/${number}`}>
             <a>
-                <div className="bg-blue-100 border-0 border-indigo-800 px-4 pt-4 pb-3 flex shadow-md">
+                <div className="bg-blue-100 border-0 border-indigo-800 px-4 pt-5 pb-3 flex shadow-md">
                     <div className="pr-4 text-orange-600 font-bold flex flex-col items-center">
                         <svg viewBox="0 0 20 20" fill="currentColor" className="mx-auto w-4 h-4">
                             <path
