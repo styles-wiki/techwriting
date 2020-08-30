@@ -65,7 +65,7 @@ export default function Index({ issues }) {
                             className="text-blue-600 underline"
                             href="https://github.com/styles-wiki/techwriting/issues/new/choose"
                         >
-                            Submit a new style for techwriting.styles.wiki!
+                            Submit a new style!
                         </a>
                     </p>
                 </div>
