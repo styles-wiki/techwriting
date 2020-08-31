@@ -1049,7 +1049,7 @@ export default function Index({ issue }) {
                         </a>
                     </p>
                 </div>
-                <div className="flex mt-6 flex-col space-y-2 lg:space-y-0 xl:space-y-0 lg:flex-row xl:flex-row">
+                <div className="flex mt-6 flex-col space-y-2 md:space-y-0 md:flex-row">
                     <Link href="/" passHref>
                         <ButtonLink>
                             <div className="flex items-center text-gray-700 space-x-1">
