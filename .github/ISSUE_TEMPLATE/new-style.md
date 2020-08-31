@@ -7,7 +7,6 @@ assignees: ''
 
 ---
 
-<!-- ONLY SUBMIT "STYLES" AS ISSUES! -->
 <!-- If this isn't a "style", please head to https://github.com/styles-wiki/styles-wiki to open an actual issue such as a bug report, feature request or roadmap question. -->
 
 <!-- insert a paragraph or two about describing the concept -->
