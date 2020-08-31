@@ -1048,7 +1048,6 @@ export default function Index({ issue }) {
                             Add your vote!
                         </a>
                     </p>
-                    <div className="text-gray-500">&bull;</div>
                 </div>
                 <div className="flex mt-6 flex-col space-y-2 lg:space-y-0 xl:space-y-0 lg:flex-row xl:flex-row">
                     <Link href="/" passHref>
@@ -1069,7 +1068,7 @@ export default function Index({ issue }) {
                     <Tooltip label="Copy permalink to clipboard">
                         <div>
                             <CopyToClipboard text={permaLink} onCopy={() => alert('Copied to clipboard')}>
-                                <button role="button" className="sw-text-blue">
+                                <button role="button" className="w-full sw-text-blue">
                                     <div className="px-3 pt-2 pb-1 bg-gray-100 border flex items-center">
                                         <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 -mt-1">
                                             <path
